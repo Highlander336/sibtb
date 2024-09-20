@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Should I Buy This Business?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div id="titleContainer">
+        <h1>Should I Buy This Business?</h1>
+    </div>
+    
+    <div class="container">
+        <div class="input-section">
+            <div>
+                <h2>Input Financials</h2>
+                <div id="inputs">
+                    <div class="input-group">
+                        <label for="askingPrice">Asking Price ($):</label>
+                        <input type="number" id="askingPrice" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ebitda">EBITDA ($):</label>
+                        <input type="number" id="ebitda" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="grossRevenue">Gross Revenue ($):</label>
+                        <input type="number" id="grossRevenue" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="cashFlow">Cash Flow ($):</label>
+                        <input type="number" id="cashFlow" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="inventory">Inventory ($):</label>
+                        <input type="number" id="inventory" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="realEstate">Real Estate ($):</label>
+                        <input type="number" id="realEstate" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ffe">FF&E ($):</label>
+                        <input type="number" id="ffe" step="0.01">
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button onclick="calculate()" class="action-button">Calculate</button>
+            </div>
+        </div>
+        
+        <div class="vertical-divider"></div>
+        
+        <div class="input-section">
+            <div>
+                <h2>Upload Image of Financials</h2>
+                <img id="uploadedImage" style="display: none; max-width: 100%; margin-bottom: 10px;">
+                <input type="file" id="imageUpload" accept="image/*" onchange="previewImage(this);">
+            </div>
+            <div class="button-container">
+                <button onclick="processImage()" class="action-button">Process Image</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="results">
+        <h2>
+            Analysis Metrics
+            <span id="analysisResult" style="display: none;"></span>
+        </h2>
+        <p>Sales Multiple: --</p>
+        <p>Cash on Cash Return: --</p>
+        <p>Debt Service per Year: --</p>
+        <p>Debt Service per Month: --</p>
+        <p>Monthly Cash Flow: --</p>
+        <p>Monthly Net Operating Income: --</p>
+    </div>
+
+    <div id="businessTypeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>What type of business is this?</h2>
+            <input type="text" id="businessType" placeholder="e.g., Restaurant, Retail Store, etc.">
+            <button onclick="analyzeBusinessPurchase()">Analyze</button>
+        </div>
+    </div>
+
+    <button id="clearAllButton" onclick="confirmClearAll()" style="margin-top: 20px;">Start Over</button>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

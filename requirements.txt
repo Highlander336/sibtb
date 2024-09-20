@@ -1,0 +1,8 @@
+flask
+langchain
+langchain-anthropic
+pillow
+pytesseract
+python-dotenv
+flask-debugtoolbar
+flask-session

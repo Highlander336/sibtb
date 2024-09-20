@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... other head content ... -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- ... other body content ... -->
+
+    <input type="file" id="imageUpload" accept="image/*" onchange="previewImage(this)">
+    <button onclick="processImage()" class="action-button">Process Image</button>
+
+    <!-- ... rest of your HTML ... -->
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
